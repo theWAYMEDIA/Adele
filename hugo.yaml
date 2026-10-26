@@ -1,0 +1,38 @@
+baseURL: 'https://adeleduplessis.net/'
+languageCode: 'en'
+title: 'Adele du Plessis'
+
+params:
+  description: "Adele du Plessis — Wayist teacher and healer."
+  tagline: "Teacher / Healer"
+  email: "adele@wayism.org"
+  telegram: "WayistAdele"
+  whatsapp: "+52 322 429 3344"
+  instagram: "MyButterflyPath"
+
+# Old WordPress URLs (/jean-and-i/, /home/) keep working
+permalinks:
+  posts: '/:slug/'
+
+disableKinds: ['taxonomy', 'term']
+
+outputs:
+  home: ['HTML']
+  section: ['HTML', 'RSS']
+  page: ['HTML']
+
+imaging:
+  quality: 78
+  resampleFilter: 'Lanczos'
+
+menu:
+  main:
+    - name: 'Home'
+      url: '/'
+      weight: 10
+    - name: 'Memories'
+      url: '/memories/'
+      weight: 20
+    - name: 'Posts'
+      url: '/posts/'
+      weight: 30

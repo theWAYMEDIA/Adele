@@ -1,0 +1,26 @@
+{{ define "main" }}
+<section class="card">
+  {{- with .Resources.GetMatch "*.jpg" }}
+  {{- $s := .Resize "320x webp" }}{{ $l := .Resize "640x webp" }}
+  <img class="portrait" src="{{ $s.RelPermalink }}" srcset="{{ $s.RelPermalink }} 320w, {{ $l.RelPermalink }} 640w" sizes="(max-width: 600px) 60vw, 320px" width="{{ $s.Width }}" height="{{ $s.Height }}" alt="Portrait of {{ site.Title }}" fetchpriority="high">
+  {{- end }}
+  <div>
+    <h1>{{ site.Title }}</h1>
+    <p class="tagline">{{ site.Params.tagline }}</p>
+    {{ .Content }}
+    {{- with site.Params }}
+    <dl class="contact">
+      <dt>Email</dt><dd><a href="mailto:{{ .email }}">{{ .email }}</a></dd>
+      <dt>Telegram</dt><dd><a href="https://t.me/{{ .telegram }}">@{{ .telegram }}</a></dd>
+      <dt>WhatsApp</dt><dd><a href="https://wa.me/{{ replaceRE `[^0-9]` "" .whatsapp }}">{{ .whatsapp }}</a></dd>
+      <dt>Instagram</dt><dd><a href="https://instagram.com/{{ .instagram }}">{{ .instagram }}</a></dd>
+    </dl>
+    {{- end }}
+  </div>
+</section>
+
+<section class="recent">
+  <h2>From the journal</h2>
+  {{ partial "post-cards.html" (where site.RegularPages "Section" "posts") }}
+</section>
+{{ end }}

@@ -1,0 +1,12 @@
+<ul class="posts">
+  {{- range . }}
+  <li>
+    <a href="{{ .RelPermalink }}">
+      {{- with .Resources.Get .Params.cover }}{{ with .Fill "600x400 webp Center" }}
+      <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="" loading="lazy">{{ end }}{{ end }}
+      <span class="t">{{ .Title }}</span>
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2006" }}</time>
+    </a>
+  </li>
+  {{- end }}
+</ul>
