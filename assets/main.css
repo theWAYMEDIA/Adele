@@ -104,3 +104,7 @@ footer.site {
   color: var(--muted); font: .85rem system-ui, sans-serif;
 }
 footer.site p { margin: 0; }
+
+/* Photos placed inside a post's text */
+figure.inline { margin: 2rem 0; max-width: 40rem; }
+figure.inline figcaption { font-size: .85rem; color: var(--muted); margin-top: .4rem; }

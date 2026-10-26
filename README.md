@@ -12,22 +12,30 @@ Push to `main` deploys to GitHub Pages.
 
 ## Adding a post
 
-Create a page bundle `content/posts/<slug>/index.md`, drop the photos beside it,
-and list them in front matter:
+Make a folder `content/posts/<short-name>/` (or run `hugo new posts/<short-name>/index.md`)
+with an `index.md` and the photos beside it:
 
-```yaml
+```markdown
 ---
-title: "Title"
+title: "My story"
 date: 2026-10-26
-cover: first-photo.jpg
-gallery:
-  - src: first-photo.jpg
-    caption: "Optional caption"
 ---
-Body text in Markdown.
+Text here. An empty line starts a new paragraph.
+
+![Optional caption](my-photo.jpg)
 ```
 
-Hugo resizes every photo to WebP thumbnails (480px) and lightbox images (1600px) at build time,
-so upload originals as they are.
+That is all a post needs. The post URL comes from the title, and the first photo in the
+folder becomes the cover on the Posts page (set `cover: file.jpg` to choose another).
+
+For a photo album at the end of a post, list the photos in front matter (see `memories/index.md`):
+
+```yaml
+gallery:
+  - src: photo.jpg
+    caption: "Optional caption"
+```
+
+Hugo resizes every photo to WebP at build time, so upload originals as they are.
 
 Content was migrated from the WordPress site on 2026-10-26; old URLs `/jean-and-i/` and `/home/` still resolve.
